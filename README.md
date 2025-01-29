@@ -73,8 +73,10 @@ A Twitch chat bot designed to automatically join Tangia Dungeons and Boss Fights
 | `CHANNELS`                           | Comma-separated list of channels to join (e.g., `"channel1,channel2"`).                                |
 | `INITIAL_ACCESS_TOKEN`               | Initial OAuth access token for the bot.                                                                |
 | `INITIAL_REFRESH_TOKEN`              | Initial OAuth refresh token for the bot.                                                               |
-| `ALLOWED_USERS`                      | JSON object mapping channels to allowed users for moderate bot (e.g., `{"channel1":["user1"]}`).                        |
+| `ALLOWED_USERS`                      | JSON object mapping channels to allowed users for moderate bot (e.g., `{"channel1":["user1"]}`).       |
 | `STOP_DURATIONS`                     | JSON object mapping channels to stop durations in minutes (e.g., `{"channel1":30}`).                   |
+| `RESPONSE_DELAY_MIN`                 | Minimum delay in milliseconds between each response.                                                   | 
+| `RESPONSE_DELAY_MAX`                 | Maximum delay in milliseconds between each response.                                                   | 
 | `PAUSE_COMMANDS`                     | JSON object mapping channels to pause commands (e.g., `{"channel1":["!pausebot", "!stoptangiabot"]}`). |
 | `ENABLE_PAUSE_MESSAGES`              | Set to `true` to enable showing pause messages when bot is paused.                                     |
 | `ENABLE_MISSING_PERMISSION_MESSAGES` | Set to `true` to enable showing missing permission messages.                                           |

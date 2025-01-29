@@ -25,8 +25,12 @@ client.on('message', (channel, tags, message, self) => {
     return commands.handleStopCommand(client, channelName, username);
   }
 
-  if (username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg)) {
-    client.say(channel, '!join').catch(logger.error);
+  if ((username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg))) {
+    const delay = Math.random() * (config.response.delayMax - config.response.delayMin) + config.response.delayMin;
+    const delayMs = delay * 1000;
+    setTimeout(() => {
+      client.say(channel, '!join').catch(logger.error);
+    }, delayMs);
     logger.success(`Joined event in ${channel}`);
   }
 });
