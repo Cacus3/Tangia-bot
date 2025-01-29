@@ -16,5 +16,9 @@ module.exports = {
       showPauseMessages: process.env.ENABLE_PAUSE_MESSAGES === 'true',
       showMissingPermissionMessages: process.env.ENABLE_MISSING_PERMISSION_MESSAGES === 'true',
       showResumeMessages: process.env.ENABLE_RESUME_MESSAGES === 'true'
+    },
+    response: {
+      delayMin: process.env.RESPONSE_DELAY_MIN ? parseInt(process.env.RESPONSE_DELAY_MIN) : 3,
+      delayMax: process.env.RESPONSE_DELAY_MAX ? parseInt(process.env.RESPONSE_DELAY_MAX) : 6
     }
   };
