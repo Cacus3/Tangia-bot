@@ -25,7 +25,7 @@ client.on('message', (channel, tags, message, self) => {
     return commands.handleStopCommand(client, channelName, username);
   }
 
-  if (username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg)) {
+  if ((username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg))) {
     const delay = Math.random() * (config.response.delayMax - config.response.delayMin) + config.response.delayMin;
     const delayMs = delay * 1000;
     setTimeout(() => {
