@@ -1,4 +1,3 @@
-```markdown
 # Tangia Bot
 
 A Twitch chat bot designed to automatically join Tangia Dungeons and Boss Fights, with additional features for streamers and moderators.
@@ -141,4 +140,3 @@ For issues or questions, please open an issue on the [GitHub repository](https:/
 ---
 
 **Happy streaming!** 🎮
-``` 
