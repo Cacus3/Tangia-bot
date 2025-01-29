@@ -85,25 +85,6 @@ A Twitch chat bot designed to automatically join Tangia Dungeons and Boss Fights
 | `RESUME_MESSAGE`                     | Message to display when bot is resumed, uses placeholders `{username}` and `{channel}`.                |
 | `MISSING_PERMISSION_MESSAGE`         | Message to display when a user lacks permission, uses placeholder `{username}`.                        |
 
-### Example `.env` File
-
-```env
-TWITCH_CLIENT_ID=your_client_id
-TWITCH_CLIENT_SECRET=your_client_secret
-BOT_USERNAME=your_bot_name
-CHANNELS="channel1,channel2"
-INITIAL_ACCESS_TOKEN=oauth_token
-INITIAL_REFRESH_TOKEN=refresh_token
-ALLOWED_USERS='{"channel1":["user1","user2"],"channel2":["user3"]}'
-STOP_DURATIONS='{"channel1":30,"channel2":60}'
-ENABLE_PAUSE_MESSAGES=true
-ENABLE_MISSING_PERMISSION_MESSAGES=true
-ENABLE_RESUME_MESSAGES=true
-PAUSE_MESSAGE="⏸️ Bot stopped for {duration} minutes!"
-RESUME_MESSAGE="▶️ Bot active!"
-MISSING_PERMISSION_MESSAGE="@{username}, Missing permissions!"
-```
-
 ## Usage
 
 ### Commands
