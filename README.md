@@ -23,7 +23,7 @@ A Twitch chat bot designed to automatically join Tangia Dungeons and Boss Fights
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/tangia-bot.git
+   git clone https://github.com/Cacus3/tangia-bot.git
    cd tangia-bot
    ```
 
