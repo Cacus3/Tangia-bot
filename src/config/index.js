@@ -10,8 +10,10 @@ module.exports = {
     commands: {
       allowedUsers: JSON.parse(process.env.ALLOWED_USERS || '{}'),
       stopDurations: JSON.parse(process.env.STOP_DURATIONS || '{}'),
-      cooldowns: {
-        join: 5000
-      }
+    },
+    features: {
+      showPauseMessages: process.env.ENABLE_PAUSE_MESSAGES === 'true',
+      showMissingPermissionMessages: process.env.ENABLE_MISSING_PERMISSION_MESSAGES === 'true',
+      showResumeMessages: process.env.ENABLE_RESUME_MESSAGES === 'true'
     }
   };

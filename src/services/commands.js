@@ -9,11 +9,17 @@ module.exports = {
     
     if (!config.commands.allowedUsers[channelName]?.includes(username.toLowerCase())) {
       logger.warn(`Unauthorized stop attempt by ${username} in ${channel}`);
-      return; // client.say(channel, `@${username}, Missing permissions!`);
+      if (config.features.showMissingPermissionMessages) {
+        client.say(channel, `@${username}, Missing permissions!`);
+      }
+      return;
     }
 
     if (pauseStates.has(channel)) {
-      return; //return client.say(channel, 'Bot already paused!');
+      if (config.features.showPauseMessages) {
+        client.say(channel, 'Bot already paused!');
+      }
+      return;
     }
 
     const duration = (config.commands.stopDurations[channelName] || 30) * 60 * 1000;
@@ -25,7 +31,9 @@ module.exports = {
     setTimeout(() => {
       pauseStates.delete(channel);
       logger.success(`Bot resumed in ${channel}`);
-      //client.say(channel, '▶️ Bot active!');
+      if (config.features.showResumeMessages) {
+        client.say(channel, '▶️ Bot active!');
+      }
     }, duration);
   },
   isPaused: (channel) => pauseStates.has(channel)

@@ -85,6 +85,9 @@ INITIAL_ACCESS_TOKEN=oauth_token
 INITIAL_REFRESH_TOKEN=refresh_token
 ALLOWED_USERS='{"channel1":["user1","user2"],"channel2":["user3"]}'
 STOP_DURATIONS='{"channel1":30,"channel2":60}'
+ENABLE_PAUSE_MESSAGES=true
+ENABLE_MISSING_PERMISSION_MESSAGES=true
+ENABLE_RESUME_MESSAGES=true
 ```
 
 ## Usage
