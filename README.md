@@ -88,6 +88,10 @@ STOP_DURATIONS='{"channel1":30,"channel2":60}'
 ENABLE_PAUSE_MESSAGES=true
 ENABLE_MISSING_PERMISSION_MESSAGES=true
 ENABLE_RESUME_MESSAGES=true
+//fields {username}, {duration}, {channel} will be replaced by their respective values.
+PAUSE_MESSAGE="⏸️ Bot stopped for {duration} minutes!"
+RESUME_MESSAGE="▶️ Bot active!"
+MISSING_PERMISSION_MESSAGE="@{username}, Missing permissions!"
 ```
 
 ## Usage
