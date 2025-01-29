@@ -8,6 +8,8 @@ A Twitch chat bot designed to automatically join Tangia Dungeons and Boss Fights
 - **Channel-Specific Control**: Supports multiple channels with independent configurations.
 - **Pause Functionality**: Allows authorized users to pause the bot for a specified duration.
 - **Customizable Permissions**: Define which users can control the bot on each channel.
+- **Customizable Messages**: Customize the bot's messages for different events, commands, and responses to fit the needs of each community.
+- **Custom Commands**: Allow the creation of custom commands tailored to the channel’s needs
 - **Token Refresh**: Automatically refreshes Twitch OAuth tokens when expired.
 - **Logging**: Detailed logging with timestamps and color-coded messages.
 
