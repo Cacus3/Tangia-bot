@@ -9,8 +9,7 @@ function formatMessage(message, values) {
 }
 
 module.exports = {
-  handleStopCommand: (client, channel, username) => {
-    const channelName = channel.slice(1).toLowerCase();
+  handleStopCommand: (client, channelName, username) => {
     
     if (!config.commands.allowedUsers[channelName]?.includes(username.toLowerCase())) {
       logger.warn(`Unauthorized stop attempt by ${username} in ${channel}`);

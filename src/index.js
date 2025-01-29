@@ -19,9 +19,10 @@ client.on('message', (channel, tags, message, self) => {
 
   const username = tags.username.toLowerCase();
   const msg = message.trim().toLowerCase();
-
-  if (msg === '!stoptangiabot') {
-    return commands.handleStopCommand(client, channel, username);
+  const channelName = channel.slice(1).toLowerCase();
+  const pauseCommands = config.commands.pauseCommands?.[channelName];
+  if (pauseCommands && pauseCommands.includes(msg.toLowerCase())) {
+    return commands.handleStopCommand(client, channelName, username);
   }
 
   if (username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg)) {
