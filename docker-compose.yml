@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  tangia-bot:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: 3
