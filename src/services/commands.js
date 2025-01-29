@@ -3,6 +3,11 @@ const config = require('../config');
 
 const pauseStates = new Map();
 
+function formatMessage(message, values) {
+  if (!message) return '';
+  return message.replace(/{(\w+)}/g, (match, key) => values[key] || match);
+}
+
 module.exports = {
   handleStopCommand: (client, channel, username) => {
     const channelName = channel.slice(1).toLowerCase();
@@ -10,14 +15,16 @@ module.exports = {
     if (!config.commands.allowedUsers[channelName]?.includes(username.toLowerCase())) {
       logger.warn(`Unauthorized stop attempt by ${username} in ${channel}`);
       if (config.features.showMissingPermissionMessages) {
-        client.say(channel, `@${username}, Missing permissions!`);
+        const message = formatMessage(process.env.MISSING_PERMISSION_MESSAGE, { username, channel: channelName });
+        client.say(channel, message);
       }
       return;
     }
 
     if (pauseStates.has(channel)) {
       if (config.features.showPauseMessages) {
-        client.say(channel, 'Bot already paused!');
+        const message = formatMessage(process.env.ALREADY_PAUSED_MESSAGE, { channel: channelName });
+        client.say(channel, message);
       }
       return;
     }
@@ -26,13 +33,15 @@ module.exports = {
     pauseStates.set(channel, true);
 
     logger.warn(`Bot paused in ${channel} for ${duration/60000} minutes`);
-    client.say(channel, `⏸️ Bot zatrzymany na ${duration/60000} minut! Pozdro Gity!`);
+    const pauseMessage = formatMessage(process.env.PAUSE_MESSAGE, { username, duration: duration / 60000, channel: channelName });
+    client.say(channel, pauseMessage);
 
     setTimeout(() => {
       pauseStates.delete(channel);
       logger.success(`Bot resumed in ${channel}`);
       if (config.features.showResumeMessages) {
-        client.say(channel, '▶️ Bot active!');
+        const resumeMessage = formatMessage(process.env.RESUME_MESSAGE, { username, channel: channelName });
+        client.say(channel, resumeMessage);
       }
     }, duration);
   },
