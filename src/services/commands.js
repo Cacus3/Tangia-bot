@@ -9,10 +9,10 @@ function formatMessage(message, values) {
 }
 
 module.exports = {
-  handleStopCommand: (client, channelName, username) => {
+  handleStopCommand: (client, channelName, username, channel) => {
     
     if (!config.commands.allowedUsers[channelName]?.includes(username.toLowerCase())) {
-      logger.warn(`Unauthorized stop attempt by ${username} in ${channel}`);
+      logger.warn(`Unauthorized stop attempt by ${username} in ${channelName}`);
       if (config.features.showMissingPermissionMessages) {
         const message = formatMessage(
           process.env.MISSING_PERMISSION_MESSAGE || "@{username}, you don't have permission!",

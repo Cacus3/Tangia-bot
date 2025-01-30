@@ -16,16 +16,14 @@ const client = new tmi.Client({
 
 client.on('message', (channel, tags, message, self) => {
   if (commands.isPaused(channel)) return;
-
   const username = tags.username.toLowerCase();
   const msg = message.trim().toLowerCase();
   const channelName = channel.slice(1).toLowerCase();
   const pauseCommands = config.commands.pauseCommands?.[channelName];
   if (pauseCommands && pauseCommands.includes(msg.toLowerCase())) {
-    return commands.handleStopCommand(client, channelName, username);
+    return commands.handleStopCommand(client, channelName, username, channel);
   }
-
-  if ((username === 'tangiabot' && /^\w+ started a Tangia (Dungeon|Boss Fight)/.test(msg))) {
+  if (username === 'tangiabot' && /^\w+ started a tangia (dungeon|Boss Fight)/i.test(msg)) {
     const delay = Math.random() * (config.response.delayMax - config.response.delayMin) + config.response.delayMin;
     const delayMs = delay * 1000;
     setTimeout(() => {
