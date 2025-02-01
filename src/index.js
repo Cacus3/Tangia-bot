@@ -23,7 +23,7 @@ client.on('message', (channel, tags, message, self) => {
   if (pauseCommands && pauseCommands.includes(msg.toLowerCase())) {
     return commands.handleStopCommand(client, channelName, username, channel);
   }
-  if (username === 'tangiabot' && /^\w+ started a tangia (dungeon|Boss Fight)/i.test(msg)) {
+  if (username === 'tangiabot' && /^\w+ started a tangia (dungeon!|Boss Fight)/i.test(msg)) {
     const delay = Math.random() * (config.response.delayMax - config.response.delayMin) + config.response.delayMin;
     const delayMs = delay * 1000;
     setTimeout(() => {
